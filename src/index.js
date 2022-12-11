@@ -13,6 +13,12 @@ mongoose.connect("mongodb+srv://Rsangram890:hPZbgpmJvegZil8Q@cluster0.osqcdhn.mo
 
 app.use('/', route)
 
+app.use("/*", function (req, res) {
+    return res.status(400).send({
+        status: false, message: "Make Sure Your Endpoint is Correct !!!"
+    })
+})
+
 
 app.listen(process.env.PORT || 3000, function () {
     console.log('Express app running on port ' + (process.env.PORT || 3000))
